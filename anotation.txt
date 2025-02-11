@@ -1,0 +1,222 @@
+Prioridade Alta (MVP - Produto Viável Mínimo)
+
+    Agendamento de Compromissos – Interface para cadastrar horários e datas de atendimento.
+    Envio Automático de Lembretes – Mensagens personalizadas via WhatsApp/SMS/Email para clientes antes do compromisso.
+    Cadastro de Clientes – Nome, telefone, e-mail e histórico de atendimentos.
+    Dashboard Simples – Resumo de compromissos do dia e notificações pendentes.
+    Controle de Usuários – Permitir múltiplos usuários (ex.: secretária e dentista) com permissões diferenciadas.
+
+Prioridade Média (Expansão e Otimização)
+
+    Confirmação de Agendamento – Cliente pode responder para confirmar ou cancelar.
+    Histórico de Atendimentos – Registro de visitas, procedimentos realizados e anotações.
+    Personalização de Mensagens – Permitir que o usuário edite os textos das notificações.
+    Integração com Google Calendar – Sincronizar compromissos com o calendário do profissional.
+    Sistema de Pagamentos e Faturas – Gerar faturas e registrar pagamentos de clientes.
+
+Prioridade Baixa (Diferenciais e Escalabilidade)
+
+    Aplicativo do Cliente – Cliente pode visualizar e gerenciar agendamentos via app.
+    Integração com WhatsApp API – Melhor envio de mensagens sem bloqueios de número.
+    Análises e Relatórios – Relatórios de atendimento, faturamento e retenção de clientes.
+    Chat Interno – Comunicação entre funcionários dentro do CRM.
+    Automação de Marketing – Envio automático de mensagens promocionais ou lembretes sazonais.
+
+_________________________________
+
+
+Paleta de Cores
+
+    Azul Escuro (#1D3557): Transmite confiança e segurança, ideal para a base do layout.
+    Ciano Claro (#4CB8FF): Moderno e vibrante, pode ser usado em botões e destaques.
+    Cinza Claro (#F1F1F1): Para áreas de fundo e elementos neutros, garantindo clareza visual.
+    Branco (#FFFFFF): Limpo e suave, ótimo para contrastar e deixar o design mais fluido.
+    Verde Lima (#A8DADC): Para botões ou detalhes que precisam de destaque e interação.
+
+Essa paleta traz um equilíbrio entre modernidade, clareza e sofisticação, que é ideal para um app de CRM que visa integração e praticidade.
+Inspiração para Layout/Interface
+
+Alguns apps que você pode se inspirar para o layout e a interface do Synk são:
+
+    Trello – O design do Trello é muito limpo e focado em produtividade, com uma paleta de cores suaves e interatividade fluida. O layout é intuitivo, com ícones e gráficos que podem ser ótimos modelos para a interface do seu CRM.
+
+    Notion – Minimalista e funcional, o Notion é ótimo para ver como o conteúdo e funcionalidades podem ser organizados de maneira simples e visualmente agradável.
+
+    Slack – Para uma interface moderna e fluida, o Slack oferece um design bem organizado, com espaços bem definidos para cada tipo de informação, ideal para um CRM que vai ter múltiplas funcionalidades.
+
+_________________________________
+
+
+src/
+│
+├── app/
+│   ├── models/                # Contém as classes de dados e lógica (Model)
+│   │   ├── cliente.model.ts
+│   │   ├── compromisso.model.ts
+│   │   └── notificacao.model.ts
+│   │
+│   ├── views/                 # Contém as páginas e componentes da interface (View)
+│   │   ├── agendamento.page.ts
+│   │   ├── dashboard.page.ts
+│   │   └── cliente.page.ts
+│   │
+│   ├── controllers/           # Controladores que conectam as Views e Models
+│   │   ├── agendamento.controller.ts
+│   │   ├── dashboard.controller.ts
+│   │   └── cliente.controller.ts
+│   │
+│   ├── services/              # Serviços que fazem interações com API, banco de dados, etc.
+│   │   ├── cliente.service.ts
+│   │   └── notificacao.service.ts
+│   │
+│   └── app.module.ts          # Módulo principal do app
+│
+└── assets/
+    ├── images/                # Imagens e ícones
+    └── styles/                # Arquivos de estilos globais
+
+
+_________________________________
+
+
+1. Agendamento de Compromissos (Prioridade Alta - MVP)
+
+View: Agendamento
+
+    Funcionalidades:
+        Formulário de Agendamento: Campos para inserir a data, hora e selecionar o cliente.
+        Seleção de Profissional/Secretária: Se houver múltiplos usuários (dentista, secretária), permitir selecionar quem será responsável.
+        Botões de Ação: “Salvar” e “Cancelar” agendamento.
+        Visualização de Disponibilidade: Mostrar horários disponíveis para facilitar o agendamento.
+        Validação de Horário: Garantir que não há conflitos de horários.
+
+2. Envio Automático de Lembretes (Prioridade Alta - MVP)
+
+View: Notificações
+
+    Funcionalidades:
+        Configuração de Notificação: Opções para definir quando e como os lembretes serão enviados (WhatsApp, SMS, e-mail).
+        Visualização de Notificações Programadas: Lista de notificações que serão enviadas e seu status.
+        Edição de Texto de Notificação: Permitir personalizar a mensagem que será enviada.
+        Relatório de Envio: Mostrar se as mensagens foram enviadas com sucesso ou se houve algum erro.
+
+3. Cadastro de Clientes (Prioridade Alta - MVP)
+
+View: Cadastro de Clientes
+
+    Funcionalidades:
+        Formulário de Cadastro: Campos para inserir nome, telefone, e-mail, e outros dados relevantes.
+        Histórico de Atendimentos: Mostrar os compromissos anteriores do cliente.
+        Edição de Cliente: Permitir editar os dados do cliente (nome, telefone, e-mail).
+        Busca de Clientes: Funcionalidade para pesquisar por nome ou telefone.
+        Botões de Ação: “Salvar” e “Cancelar”.
+
+4. Dashboard Simples (Prioridade Alta - MVP)
+
+View: Dashboard
+
+    Funcionalidades:
+        Resumo de Compromissos do Dia: Exibir lista de compromissos agendados para o dia atual.
+        Notificações Pendentes: Exibir lembretes pendentes de envio ou ações a serem tomadas.
+        Atividades Recentes: Últimos atendimentos ou interações realizadas.
+        Alertas de Ações Pendentes: Avisos para qualquer compromisso ou ação que precise de atenção (ex.: confirmação de agendamento).
+        Gráficos Simples: Para indicar status geral de compromissos ou pagamentos, se necessário.
+
+5. Controle de Usuários (Prioridade Alta - MVP)
+
+View: Gerenciamento de Usuários
+
+    Funcionalidades:
+        Listagem de Usuários: Mostrar todos os usuários cadastrados no sistema.
+        Criação e Edição de Usuários: Permitir adicionar novos usuários e editar dados de usuários existentes.
+        Controle de Permissões: Definir permissões de acesso para cada usuário (ex.: secretária, dentista, administrador).
+        Visualização de Atividades dos Usuários: Logs de atividades realizadas por cada usuário (compromissos, alterações de dados, etc.).
+
+6. Confirmação de Agendamento (Prioridade Média)
+
+View: Confirmação de Agendamento
+
+    Funcionalidades:
+        Resposta ao Lembrete: Permitir que o cliente confirme ou cancele o compromisso via SMS/WhatsApp ou e-mail.
+        Visualização de Status de Confirmação: Exibir se o cliente confirmou ou cancelou o agendamento.
+
+7. Histórico de Atendimentos (Prioridade Média)
+
+View: Histórico de Atendimentos
+
+    Funcionalidades:
+        Exibição de Lista de Atendimentos: Mostrar todos os atendimentos passados com detalhes como data, procedimento, e profissional.
+        Filtros de Pesquisa: Permitir buscar por data, cliente ou tipo de procedimento.
+        Detalhes de Atendimento: Exibir informações detalhadas sobre cada atendimento, com opções para adicionar notas.
+
+8. Personalização de Mensagens (Prioridade Média)
+
+View: Configurações de Notificação
+
+    Funcionalidades:
+        Editor de Texto: Interface para personalizar os textos dos lembretes enviados para clientes.
+        Visualização da Mensagem: Mostrar uma prévia de como a mensagem ficará.
+        Salvar Configurações: Botão para salvar as alterações.
+
+9. Integração com Google Calendar (Prioridade Média)
+
+View: Integração de Calendário
+
+    Funcionalidades:
+        Sincronização de Calendário: Exibir compromissos agendados no Google Calendar dentro do app.
+        Opção de Sincronização Bidirecional: Permitir editar compromissos no app e refletir automaticamente no Google Calendar e vice-versa.
+        Configurações de Sincronização: Definir quais compromissos devem ser sincronizados.
+
+10. Sistema de Pagamentos e Faturas (Prioridade Média)
+
+View: Faturas
+
+    Funcionalidades:
+        Geração de Faturas: Criar e visualizar faturas para clientes.
+        Registro de Pagamentos: Marcar faturas como pagas ou pendentes.
+        Histórico de Faturas: Exibir faturas passadas e pendentes.
+        Botões de Ação: “Gerar Fatura” e “Registrar Pagamento”.
+
+11. Aplicativo do Cliente (Prioridade Baixa)
+
+View: Aplicativo Cliente
+
+    Funcionalidades:
+        Visualização de Agendamentos: Cliente pode visualizar seus compromissos agendados.
+        Cancelar ou Confirmar Agendamento: Permitir ao cliente responder aos lembretes.
+        Histórico de Atendimentos: Exibir todos os atendimentos anteriores do cliente.
+
+12. Integração com WhatsApp API (Prioridade Baixa)
+
+View: Configurações de Mensagens
+
+    Funcionalidades:
+        Integração com WhatsApp: Exibir configurações para conectar a conta de WhatsApp API para envio de mensagens automáticas.
+        Relatórios de Envio: Exibir informações sobre o envio de mensagens via WhatsApp, incluindo status e erro.
+
+13. Análises e Relatórios (Prioridade Baixa)
+
+View: Relatórios
+
+    Funcionalidades:
+        Visualização de Relatórios: Mostrar gráficos e relatórios sobre atendimentos, faturamento e retenção de clientes.
+        Filtros de Relatório: Permitir que o usuário selecione períodos e tipos de relatórios.
+        Exportação de Dados: Permitir exportar relatórios em PDF ou CSV.
+
+14. Chat Interno (Prioridade Baixa)
+
+View: Chat Interno
+
+    Funcionalidades:
+        Troca de Mensagens: Permitir que os funcionários se comuniquem entre si dentro do app.
+        Notificações de Mensagens: Notificar os usuários sobre novas mensagens no chat.
+        Arquivos: Permitir enviar arquivos dentro do chat (ex.: documentos de clientes).
+
+15. Automação de Marketing (Prioridade Baixa)
+
+View: Automação de Marketing
+
+    Funcionalidades:
+        Configuração de Mensagens Automáticas: Criar campanhas de marketing automáticas, como lembretes de promoções ou datas comemorativas.
+        Gestão de Campanhas: Exibir as campanhas criadas e suas métricas (envios, respostas).
+        Integração com Redes Sociais: Permitir integração com outras plataformas para campanhas automatizadas.
