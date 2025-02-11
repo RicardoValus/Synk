@@ -1,0 +1,7 @@
+{
+  "name": "Synk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
