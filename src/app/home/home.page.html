@@ -1,20 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<header>
+  <figure>
+    <img src="../../assets/images/nexhub-logo.png" alt="image">
+  </figure>
+</header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<main>
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (item of todo; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+        }
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h2>Done</h2>
+
+      <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
+        @for (item of done; track item) {
+        <div class="example-box" cdkDrag>{{item}}</div>
+        }
+      </div>
+    </div>
   </div>
-</ion-content>
+
+</main>
